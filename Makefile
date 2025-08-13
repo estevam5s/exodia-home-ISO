@@ -1,61 +1,72 @@
-# CyberForge OS Build Makefile
+# CyberForge OS Makefile
 
-.PHONY: all build clean install-deps test help
-
-# Variables
-BUILD_SCRIPT = ./build-cyberforge.sh
-ISO_DIR = ./out
-WORK_DIR = ./work
+.PHONY: all clean deps build test usb help
 
 # Default target
-all: build
+all: deps build
 
 # Install dependencies
-install-deps:
-	@echo "Installing build dependencies..."
-	sudo pacman -S --needed archiso base-devel git
+deps:
+	@echo "Installing dependencies..."
+	sudo bash setup-build-deps.sh
 
-# Build the ISO
+# Build ISO
 build:
-	@echo "Building CyberForge OS ISO..."
-	@chmod +x $(BUILD_SCRIPT)
-	$(BUILD_SCRIPT)
+	@echo "Building CyberForge OS..."
+	sudo ./build-cyberforge.sh
 
-# Clean build artifacts
-clean:
-	@echo "Cleaning build directories..."
-	sudo rm -rf $(WORK_DIR) $(ISO_DIR)
-	@echo "Clean completed."
-
-# Test ISO in QEMU (requires qemu)
+# Test ISO in QEMU
 test:
-	@if [ ! -f $(ISO_DIR)/cyberforge-security-*.iso ]; then \
-		echo "ISO not found. Run 'make build' first."; \
-		exit 1; \
+	@echo "Testing ISO..."
+	@ISO_FILE=$$(find out -name "*.iso" | head -1); \
+	if [ -n "$$ISO_FILE" ]; then \
+		qemu-system-x86_64 -cdrom "$$ISO_FILE" -boot d -m 4G -smp 2 -enable-kvm; \
+	else \
+		echo "No ISO file found. Build first with 'make build'"; \
 	fi
-	@echo "Testing ISO in QEMU..."
-	qemu-system-x86_64 -m 4096 -enable-kvm -cdrom $(shell ls $(ISO_DIR)/cyberforge-security-*.iso | head -1)
 
-# Quick build for testing
+# Create bootable USB
+usb:
+	@if [ -f "out/create-bootable-usb.sh" ]; then \
+		sudo bash out/create-bootable-usb.sh; \
+	else \
+		echo "USB script not found. Build first with 'make build'"; \
+	fi
+
+# Clean build environment
+clean:
+	@echo "Cleaning build environment..."
+	sudo rm -rf work out
+	mkdir -p work out
+
+# Quick build (without downloads)
 quick:
-	@echo "Quick build (minimal packages)..."
-	QUICK_BUILD=1 $(BUILD_SCRIPT)
+	@echo "Quick build..."
+	sudo ./build-cyberforge.sh --quick
 
-# Show help
+# Full build with downloads
+full:
+	@echo "Full build with downloads..."
+	sudo ./build-cyberforge.sh --full
+
+# Help
 help:
 	@echo "CyberForge OS Build System"
+	@echo "=========================="
 	@echo ""
 	@echo "Available targets:"
-	@echo "  all         - Build the complete ISO (default)"
-	@echo "  build       - Build the complete ISO"
-	@echo "  install-deps- Install required dependencies"
-	@echo "  clean       - Clean build directories"
-	@echo "  test        - Test ISO in QEMU"
-	@echo "  quick       - Quick build for testing"
-	@echo "  help        - Show this help message"
+	@echo "  all     - Install deps and build ISO (default)"
+	@echo "  deps    - Install build dependencies"
+	@echo "  build   - Build CyberForge OS ISO"
+	@echo "  test    - Test ISO in QEMU"
+	@echo "  usb     - Create bootable USB"
+	@echo "  clean   - Clean build environment"
+	@echo "  quick   - Quick build (no downloads)"
+	@echo "  full    - Full build with downloads"
+	@echo "  help    - Show this help"
 	@echo ""
 	@echo "Examples:"
-	@echo "  make install-deps  # Install dependencies"
-	@echo "  make build         # Build ISO"
-	@echo "  make test          # Test in VM"
-	@echo "  make clean         # Clean up"
+	@echo "  make all        # Complete build"
+	@echo "  make build      # Build only"
+	@echo "  make test       # Test in VM"
+	@echo "  make usb        # Create USB"
