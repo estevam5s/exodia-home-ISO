@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="exodia-home"
-iso_label="Exodia-Home$(date +%Y%m)"
-iso_publisher="Mahmoud Mohamed (00xWolf) <https://github.com/mmsaeed509>"
-iso_application="Exodia Live/Rescue CD"
+iso_name="cyberforge-security"
+iso_label="CyberForge$(date +%Y%m)"
+iso_publisher="CyberForge Security Team <security@cyberforge.org>"
+iso_application="CyberForge Security Live/Rescue CD"
 iso_version="$(date +%Y.%m.%d)"
 install_dir="arch"
 buildmodes=('iso')
@@ -26,4 +26,6 @@ file_permissions=(
   ["/usr/local/bin/choose-mirror"]="0:0:755"
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
+  ["/usr/local/bin/cybersec-tools"]="0:0:755"
+  ["/usr/local/bin/pentest-setup"]="0:0:755"
 )

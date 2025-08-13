@@ -4,6 +4,7 @@
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
 QT_QPA_PLATFORMTHEME=qt5ct
-PATH="/usr/share/exodia/scripts"
+PATH="/usr/share/cyberforge/scripts:/usr/local/bin"
 EDITOR=nvim
-BROWSER=google-chrome-stable
+BROWSER=tor-browser
+TERM=alacritty

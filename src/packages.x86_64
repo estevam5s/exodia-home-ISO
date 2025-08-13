@@ -1,6 +1,5 @@
 # -------- Base Packages -------- #
 
-# alsa-utils
 amd-ucode
 arch-install-scripts
 archinstall
@@ -10,7 +9,6 @@ bind
 brltty
 broadcom-wl
 btrfs-progs
-clonezilla
 cloud-init
 cryptsetup
 darkhttpd
@@ -25,7 +23,6 @@ dosfstools
 e2fsprogs
 edk2-shell
 efibootmgr
-# espeakup
 ethtool
 exfatprogs
 f2fs-tools
@@ -35,8 +32,6 @@ gnu-netcat
 gpart
 gpm
 gptfdisk
-# grml-zsh-config
-# grub
 hdparm
 hyperv
 intel-ucode
@@ -53,7 +48,6 @@ linux
 linux-atm
 linux-firmware
 linux-firmware-marvell
-#livecd-sounds
 lsscsi
 lvm2
 lynx
@@ -61,7 +55,6 @@ man-db
 man-pages
 mc
 mdadm
-# memtest86+
 mkinitcpio
 mkinitcpio-archiso
 mkinitcpio-nfs-utils
@@ -76,7 +69,6 @@ nmap
 ntfs-3g
 nvme-cli
 open-iscsi
-# open-vm-tools
 openconnect
 openssh
 openvpn
@@ -87,7 +79,6 @@ pcsclite
 ppp
 pptpclient
 pv
-# qemu-guest-agent
 refind
 reflector
 reiserfsprogs
@@ -113,7 +104,6 @@ usb_modeswitch
 usbmuxd
 usbutils
 vim
-# virtualbox-guest-utils-nox
 vpnc
 wireless-regdb
 wireless_tools
@@ -133,7 +123,7 @@ xorg-xinput
 xf86-input-libinput
 numlockx
 
-# -------- GPU Drivers (Intel/AMD/VM) -------- #
+# -------- GPU Drivers -------- #
 
 xf86-video-fbdev
 xf86-video-vesa
@@ -142,15 +132,12 @@ xf86-video-amdgpu
 xf86-video-ati
 mesa
 mesa-utils
-
-# -------- GPU Drivers (NVIDIA) -------- #
-
 xf86-video-nouveau
 nvidia
 nvidia-utils
 nvidia-settings
 
-# -------- Hypervisors (QEMU/VirtualBox/VMware) -------- #
+# -------- Hypervisors -------- #
 
 virtualbox-guest-utils
 qemu-guest-agent
@@ -158,58 +145,63 @@ open-vm-tools
 xf86-input-vmmouse
 xf86-video-vmware
 
-# -------- WirelessPackages (Networking/Bluetooth/etc..) -------- #
-
-# Networking #
+# -------- Networking -------- #
 
 firefox
-google-chrome
-brave-bin
+tor-browser
 networkmanager
 networkmanager-openvpn
 nethogs
 nm-connection-editor
 net-tools
 wget
+curl
 bmon
+wireshark-qt
+tcpdump
+ngrep
+ettercap
+aircrack-ng
+kismet
+wifite
+hostapd
+dnsmasq
+bridge-utils
+openvpn
+proxychains-ng
 
-# bluetooth #
+# -------- Bluetooth -------- #
 
 bluez
 bluez-utils
 blueman
 pulseaudio-bluetooth
 
-# -------- WMs & WMs dependences -------- #
+# -------- Window Manager & Desktop -------- #
 
+i3-wm
+i3status
+i3lock
+rofi
+dunst
+dmenu
+polybar
 bspwm
 sxhkd
-rofi
-polybar
-dunst
-mpd
-mpc
-maim
-xclip
-viewnior
-feh
-ksuperkey
-betterlockscreen
+picom
+nitrogen
+lxappearance
+arandr
 xfce4-power-manager
 xsettingsd
-xorg-xsetroot
-wmname
 
-# -------- Printers -------- #
+# -------- Terminals -------- #
 
-cups
-cups-pdf
-cups-filters
-ghostscript
-gsfonts
-foomatic-db-engine
-foomatic-db
-gutenprint
+alacritty
+terminator
+kitty
+xfce4-terminal
+rxvt-unicode
 
 # -------- Sound -------- #
 
@@ -223,274 +215,272 @@ pipewire-pulse
 pipewire-jack
 pulsemixer
 pavucontrol
-gst-plugin-pipewire
 
-# -------- Files -------- #
+# -------- Files & Archives -------- #
 
-highlight
-trash-cli
-ueberzug
 thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
-xdg-user-dirs
-xdg-user-dirs-gtk
-
-# Archives #
-bzip2
-gzip
-lrzip
-lz4
-lzip
-lzop
-xz
-zstd
+ranger
+mc
 p7zip
 zip
 unzip
 unrar
-unarchiver
 xarchiver
+file-roller
 
+# -------- Penetration Testing Tools -------- #
 
-## TUI ##
-ranger
-# mc
+# Network Scanning & Enumeration
+nmap
+masscan
+zmap
+unicornscan
+arp-scan
+netdiscover
+nbtscan
+enum4linux
+smbclient
+rpcclient
+showmount
+snmp-check
+onesixtyone
+smtp-user-enum
+ike-scan
+dmitry
 
-# -------- Multimedia -------- #
+# Web Application Testing
+nikto
+dirb
+gobuster
+dirbuster
+wfuzz
+sqlmap
+burpsuite
+zaproxy
+wpscan
+joomscan
+commix
+xsser
+whatweb
+httprint
+skipfish
 
-viewnior
-feh
-gwenview
-ffmpeg
-ffmpegthumbnailer
-mpc
-mpv
-mpd
-mplayer
-totem
-ncmpcpp
-tumbler
+# Vulnerability Scanners
+openvas
+nessus
+nuclei
+nmap-vulners
 
-# -------- Terminals -------- #
+# Exploitation Frameworks
+metasploit
+armitage
+cobalt-strike
+empire
+powersploit
 
-alacritty
-xfce4-terminal
-kitty
+# Password Attacks
+hashcat
+john
+hydra
+medusa
+ncrack
+patator
+crunch
+cewl
+cupp
+rsmangler
 
-# -------- Docs/Editors/etc.. -------- #
+# Wireless Security
+aircrack-ng
+wifite
+reaver
+pixiewps
+hostapd-wpe
+asleap
+cocorico-ng
 
-atril
-geany
-geany-plugins
+# Forensics & Analysis
+autopsy
+sleuthkit
+volatility
+binwalk
+foremost
+scalpel
+testdisk
+photorec
+chkrootkit
+rkhunter
+yara
+clamav
+
+# Reverse Engineering
+gdb
+radare2
+ghidra
+ida-free
+objdump
+strace
+ltrace
+hexedit
+bless
+
+# OSINT & Information Gathering
+theharvester
+maltego
+recon-ng
+shodan
+google-dorks
+fierce
+dnsrecon
+dnsmap
+sublist3r
+amass
+
+# Social Engineering
+set
+king-phisher
+gophish
+
+# Steganography & Crypto
+steghide
+outguess
+stegosuite
+hashid
+hash-identifier
+
+# Post-Exploitation
+mimikatz
+bloodhound
+empire
+covenant
+sliver
+
+# Mobile Security
+apktool
+dex2jar
+jadx
+frida
+
+# Hardware Hacking
+minicom
+screen
+picocom
+openocd
+urjtag
+
+# Database Assessment
+sqlmap
+sqsh
+tnscmd10g
+
+# System Tools
+netcat
+socat
+proxychains-ng
+tor
+torsocks
+macchanger
+ethtool
+tcpreplay
+scapy
+
+# -------- Development & Scripting -------- #
+
+python
+python-pip
+python-virtualenv
+python-requests
+python-beautifulsoup4
+python-scapy
+python-nmap
+ruby
+ruby-bundler
+perl
+nodejs
+npm
+git
+github-cli
+code
 vim
 neovim
-nano
-galculator
-visual-studio-code-bin
+sublime-text-4
+
+# -------- System Utilities -------- #
+
+htop
+btop
+neofetch
+tree
+tmux
+screen
+gparted
+bleachbit
+timeshift
+rsync
+dd
+hexdump
+strings
+file
+lsof
+ss
+iftop
+iotop
+powertop
 
 # -------- Fonts -------- #
 
-font-manager
-noto-fonts
-noto-fonts-emoji
-noto-fonts-cjk
 terminus-font
 ttf-dejavu
-ttf-ms-fonts
-exodia-fonts
+ttf-liberation
+ttf-hack
+noto-fonts
+noto-fonts-emoji
 
-# -------- System -------- #
+# -------- Themes & Appearance -------- #
 
-acpi
-autoconf
-automake
-binutils
-bison
-calc
-fakeroot
-gcc
-gparted
-gtk-engine-murrine
-gvfs
-gvfs-mtp
-gvfs-afc
-gvfs-gphoto2
-gvfs-smb
-gvfs-google
-inotify-tools
-jq
-make
-patch
-pkg-config
-polkit
-powertop
-python2
-python-pip
-sshfs
-udisks2
-wmctrl
-xclip
-xdotool
-xmlstarlet
-yad
-
-# -------- Utilities -------- #
-
-# Video #
-inetutils
-libdv
-libmpeg2
-schroedinger
-libtheora
-libvpx
-x264
-x265
-xvidcore
-gstreamer
-gst-libav
-gst-plugins-good
-gst-plugins-ugly
-gst-plugins-bad
-
-arandr
-
-baobab
-dialog
-dunst
-gpick
-htop
-lxappearance
-meld
-ncdu
-nitrogen
-plank
-python-pywal
-rofi
-maim
-slop
-
-# -------- XFCE Packages -------- #
-
-xfce4-power-manager
-xfce4-settings
-xsettingsd
-
-# -------- QT Packages -------- #
-
-kvantum
-qt5ct
-
-# -------- Grub / Bootloader -------- #
-
-os-prober
-lsb-release
-exodia-repo/grub
-exodia-grub-theme
-
-# -------- Plymouth (Splash Screen) -------- #
-
-exodia-repo/plymouth
-exodia-plymouth-theme
+arc-gtk-theme
+papirus-icon-theme
+numix-gtk-theme
+numix-icon-theme-circle
 
 # -------- Display Manager -------- #
 
-sddm
-sddm-theme-astronaut
-exodia-sddm-theme-corners-git
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+# -------- Bootloader -------- #
+
+os-prober
+lsb-release
+grub
+grub-theme-vimix
 
 # -------- AUR Packages -------- #
 
-dmenu
-betterlockscreen
-downgrade
-i3lock-color
-ksuperkey
-light
-networkmanager-dmenu-git
-#obmenu-generator
-perl-linux-desktopfiles
-picom-jonaburg
-polybar
-timeshift
-xfce-polkit
 yay
-cava
-lsd
+paru
+burpsuite
+sublimetext-4
+discord
+slack-desktop
+sherlock-git
+subfinder
+httpx
+katana
+chaos-client
 
-plocate
-gnome-disk-utility
-
-# -------- Calamares -------- #
-
-boost
-calamares
-exodia-calamares
-exodia-install-scripts
-
-#########################################################
-#                    Exodia packages                    #
-#########################################################
-
-tgpt
-gtk-widget-factory-git
-# bsp-layout
-
-# Exodia Artworks #
-
-exodia-icons
-exodia-cursors
-exodia-themes
-exodia-backgrounds
-candy-icons-git
-exodia-pixmaps
-
-# Exodia Skeleton #
-
-exodia-skeleton
-
-# exodia-text-editors
-exodia-lfs-pkgs-repo/exodia-NvChad
-exodia-vim
-his-git
-jgmenu
-powershell
-exodia-eww
-
-exodia-bspwm
-exodia-dwm
-exodia-i3wm
-
-exodia-hooks
-
-# Exodia Apps #
-
-about-exodia-os
-exodia-assistant
-exodia-welcome
-
-## -------------- TUI Apps -------------- ##
-
-# Exodia-TUI-Apps
-# cmatrix
-
-## brwosers ##
-
-# w3m
-# lynx 
-# links
-# elinks
-
-## sys monitor ##
-
-duf
-htop
-bashtop
-ncdu
-
-## -------------- TUI Apps -------------- ##
+# -------- Chaotic AUR -------- #
 
 chaotic-mirrorlist
 chaotic-keyring
 archlinux-keyring
+
+# -------- BlackArch Tools -------- #
+
+beef
+exploitdb
+wordlists
+rockyou
+seclists
+payloadsallthethings
